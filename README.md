@@ -1,7 +1,10 @@
-<img width="1920" height="1030" alt="loginJob" src="https://github.com/user-attachments/assets/aa27b374-6684-44da-b5ef-86bd71ff5182" /><img width="1920" height="1030" alt="homeJob" src="https://github.com/user-attachments/assets/e7bf33e0-b3cb-4e2b-8c55-1d7100a5637a" /># Рабочка - Сервис для поиска подработки
+
+
+# Рабочка - Сервис для поиска подработки
 
 
 ## Главная страница сайта
+
 <img width="1920" height="1030" alt="homeJob" src="https://github.com/user-attachments/assets/ebd36000-c927-4add-b9d4-dfdcb1905f62" />
 
 ## Детальная информация о подработке
