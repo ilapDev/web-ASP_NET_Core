@@ -1,9 +1,350 @@
-﻿.job-profile-container {
+﻿/*Основной контейнер Профиля*/
+.profile-container {
+    display: block;
+}
+.profile-container__block {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 0 32px 0 32px;
+}
+/* блок профиль*/
+.profile-container__card {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-container__card-user {
+    width: 437.33px;
+    height: 370px;
+    background: rgba(255, 255, 255, 1);
+    border: 1px solid rgba(226, 232, 240, 1);
+    border-radius: 24px;
+    box-sizing: border-box;
+    margin-bottom: 24px;
+    padding: 25px;
+}
+
+.profile-container__card-user-icon {
+    width: 387.33px;
+    height: 112px;
     display: flex;
     justify-content: center;
+}
+
+.profile-container__card-user-avatar {
+    width: 96px;
+    height: 96px;
+    background: rgba(245, 247, 250, 1);
+    border: 2px solid rgba(226, 232, 240, 1);
+    border-radius: 33554400px;
+    box-sizing: border-box;
+}
+
+.profile-container__card-user-h3 {
+    width: 130px;
+    height: 32px;
+    color: rgba(30, 41, 59, 1);
+    text-align: center;
+    font: 800 20px/28px "Inter", apple-system, sans-serif;
+}
+
+.profile-container__card-user-data {
+    width: 387.33px;
+    height: 76px;
+    display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 0 24px 0;
+}
+
+.profile-container__card-user-data-p {
+    width: 173px;
+    height: 44px;
+    color: rgba(103, 110, 120, 1);
+    text-align: center;
+    font: 14px/20px "Inter", apple-system, sans-serif;
+}
+
+.profile-container__card-user-info {
+    width: 387.33px;
+    height: 52px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.profile-container__card-user-info-p1 {
+    width: 387.33px;
+    height: 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 12px;
+}
+
+.profile-container__card-user-info-p2 {
+    width: 387.33px;
+    height: 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 12px;
+}
+
+    .profile-container__card-user-info-p1::before {
+        content: '';
+        display: inline-block;
+        width: 18px;
+        height: 18px;
+        background-image: url('..//images/email.svg');
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    .profile-container__card-user-info-p2::before {
+        content: '';
+        display: inline-block;
+        width: 18px;
+        height: 18px;
+        background-image: url('..//images/location.svg');
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+.profile-container__card-user-info-text {
+    color: rgba(103, 110, 120, 1);
+    font: 14px/20px "Inter", apple-system, sans-serif;
+}
+
+.profile-container__card-user-setting {
+    position: relative;
+    width: 387.33px;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: flex-start;
+    gap: 32px;
+}
+
+.profile-container__card-user-setting-bth {
+    position: absolute;
+    width: 387.33px;
+    height: 48px;
+    background: rgba(245, 247, 250, 1);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: #676E78;
+    font: 500 16px/24px "Inter", apple-system, sans-serif;
+    cursor: pointer;
+}
+    .profile-container__card-user-setting-bth:hover {
+        background: linear-gradient(90.00deg, rgba(240, 250, 245, 1),rgba(255, 255, 255, 1) 60%,rgba(237, 242, 247, 1) 100%);
+    }
+
+.profile-container__card-user-setting::before {
+    content: '';
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    margin-right: 8px;
+    background-image: url('..//images/setting.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.profile-container__card-static {
+    width: 437.33px;
+    height: 171px;
+    padding: 25px;
+    background: rgba(255, 255, 255, 1);
+    border: 1px solid rgba(226, 232, 240, 1);
+    border-radius: 24px;
+    box-sizing: border-box;
+}
+
+    .profile-container__card-static h3 {
+        width: 387.33px;
+        height: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        font: 600 16px/24px "Inter", sans-serif;
+    }
+
+.profile-container__h1 {
+    margin-top: 32px;
+    margin-left: 32px;
+    height: 68px;
+    font: 600 30px/36px "Inter", sans-serif;
+    width: 251px;
+    color: rgba(30, 41, 59, 1);
+    text-align: left;
+}
+
+.profile-container__card-static-activ-block {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 41px;
+    width: 387px;
+    padding: 8px 0 8px 0;
+}
+
+.profile-container__card-static-activ-block-two {
+    border-top: 1px solid rgba(226, 232, 240, 1);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 41px;
+    width: 387px;
+    padding: 8px 0 8px 0;
+}
+.profile-container__card-static-activ-block-text-two,
+.profile-container__card-static-activ-block-text {
+    display: flex;
+    align-items: center;
+}
+    .profile-container__card-static-activ-block-text-two::before {
+        content: '';
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        margin-right: 8px;
+        background-image: url('..//images/rost.svg');
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+    .profile-container__card-static-activ-block-text::before {
+        content: '';
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        margin-right: 8px;
+        background-image: url('..//images/document.svg');
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+.profile-container__card-static-active-count-title {
+    color: #676E78;
+    font: 14px/20px "Inter", sans-serif;
+}
+
+.profile-container__card-static-active-count-text {
+    color: #676E78;
+    font: 600 16px/24px "Inter", sans-serif;
+}
+
+.profile-container__card-setting {
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
     box-shadow: 0 8px 20px rgba(0,0,0,.08);
-    border-radius: 10px;
-    width: calc(50%-10px);
-    background-color: #fff;
+    padding: 20px;
+    margin: 0 0 0 31px;
+    width: 906.67px;
+    height: 565px;
+    background: rgba(255, 255, 255, 1);
+    border: 1px solid rgba(226, 232, 240, 1);
+    border-radius: 24px;
+    box-sizing: border-box;
+   
+}
+
+.profile-container__card-setting-p1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.profile-container__card-setting-p1-header {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.profile-container__card-setting-p1-header-title {
+    height: 56px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    font: 600 24px/32px "Inter", sans-serif;
+}
+
+.profile-container__card-setting-p1-header-add {
+    width: 24px;
+    height: 24px;
+    background: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    background-image: url(../images/add.svg);
+}
+
+.card-profile {
+    display: flex;
+    width: auto;
+    height: 235px;
+    flex-direction: column;
+    justify-content: center;
+    padding: 16px 20px;
+    gap: 16px; /* отступы между карточками */
+    margin-top: 10px;
+}
+
+.jobs-container_profile {
+    display: flex;
+    flex-direction: row;
+    margin-top: 0;
+    justify-content: flex-start;
+    height: 470px; /* максимальная высота контейнера */
+    overflow-y: auto; /* вертикальная прокрутка при переполнении */
+    padding: 10px;
+    gap: 16px;
+}
+
+.job-container__card-link_profile {
+    width: auto;
+    height: 235px;
+}
+
+.profile-container__block-null {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 20px;
+    box-sizing: border-box;
+}
+
+/* Иконка (галочка) */
+.profile-container__block-null-icon {
+}
+
+/* Заголовок "У вас пока нет вакансий" */
+.profile-container__block-null-title {
+}
+
+/* Описание */
+.profile-container__block-null-description {
+}
+
+/* Кнопка "Добавить объявление" */
+.profile-container__block-null-add {
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
 }

@@ -29,15 +29,19 @@ namespace Рабочка_beta_1._0.Controllers
             return View();
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(string login, string password)
         {
+            if (string.IsNullOrWhiteSpace(login) || string.IsNullOrWhiteSpace(password))
+            {
+                return Json(new {success = false, message = "Введите логин и пароль" });
+            }
             var user = _context.Users
                 .Include(r=>r.RoleNavigation)
-                .FirstOrDefault(u=>u.Login == login && u.Password == password);
-            if (user == null)
+                .FirstOrDefault(u=>u.Login == login);
+            if (user == null || !BCrypt.Net.BCrypt.Verify(password, user.Password))
             {
-                ViewBag.Error = "Неверный логин или пароль";
-                return View();
+                return Json(new { success = false, message = "Неверный логин или пароль" });
             }
             var claims = new List<Claim>
             {
@@ -53,28 +57,39 @@ namespace Рабочка_beta_1._0.Controllers
                 CookieAuthenticationDefaults.AuthenticationScheme,
                 new ClaimsPrincipal(identity)
             );
-
-            return RedirectToAction("Index", "Home");
+            return Json(new { success = true});
         }
+
         [HttpPost]
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return RedirectToAction("Index", "Home");
         }
+
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(string Username, string Phone, string Adress, string Login, string Password)
-        {
-            if(_context.Users.Any(u=>u.Login == Login))
-            {
-                ViewBag.Error = "Такой логин уже существует";
-                return View("Login");
-            }
+        {   
+            if (_context.Users.Any(u=>u.Login == Login))
+                return Json(new { success = false, message = "Такой логин уже существует" });
+
+            if (string.IsNullOrWhiteSpace(Username) ||
+                string.IsNullOrWhiteSpace(Login) ||
+                string.IsNullOrWhiteSpace(Password))
+                return Json(new { success = false, message = "Заполните все обязательные поля!" });
+
+            if (Password.Length < 6)
+                return Json(new { success = false, message = "Пароль должен содержать минимум 6 символов" });
+            if (Login.Length < 6)
+                return Json(new { success = false, message = "Логин должен содержать минимум 6 символов"});
+
+
             var user = new User
             {
                 Username = Username,
                 Login = Login,
-                Password = Password,
+                Password = BCrypt.Net.BCrypt.HashPassword(Password),
                 Role = 1,
                 CreatedAt = DateTime.Now,
                 Phone = Phone,
@@ -83,7 +98,7 @@ namespace Рабочка_beta_1._0.Controllers
             };
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
-            return RedirectToAction("Login");
+            return Json(new { success = true });
         }
     }
 }

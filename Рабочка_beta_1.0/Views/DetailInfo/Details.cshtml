@@ -1,39 +1,91 @@
 ﻿@model Job
+@{
+    ViewData["Title"] = "Детальная информация";
+    var similarJobs = ViewBag.SimilarJobs as IEnumerable<Job>; 
+}
 <div class="job-details">
-    <div class="job-details__header">
-        <h1 class="job-details__title">@Model.Title</h1>
-        <div class="job-details__salary">@Model.Salary ₽</div>
-    </div>
-    <div class="job-details__meta">
-        <div class="jobs-container__card-location">
-            <img src="~/fonts/Location.svg" class="jobs-container__card-location-icon">
-            <span class="jobs-container__card-location-text">@Model.Location</span>
+    <div class="job-details__block">
+        <div class="job-details__header">
+            <h1 class="job-details__title">@Model.Title</h1>
+            <div class="job-details__salary">@Model.Salary ₽</div>
         </div>
-        <div class="jobs-container__card-location">
-            <img src="~/fonts/Location.svg" class="jobs-container__card-location-icon">
-            <span class="jobs-container__card-location-text">@Model.Category.Name</span>
-        </div>
-    </div>
-    
-    <div class="job-details__section">
-        <h3>Описание: </h3>
-        <p class="job-details__description">
-            @Model.Description
-        </p>
-    </div>
-    <div class="jobs-container-block">
-        <div class="jobs-container__card-date">
-            <img src="~/fonts/Calendar.svg" class="jobs-container__card-location-icon">
-            <span class="jobs-container__card-views-text">@Model.CreatedAt</span>
-            <div class="jobs-container__card-views">
-                <img src="~/fonts/Eye.svg" class="jobs-container__card-location-icon">
-                <span class="jobs-container__card-views-text">@Model.Views</span>
+        <div class="job-details__meta">
+            <div class="job-details__meta-info">
+                <div class="job-details__meta-info-p1">
+                    <span class="jobs-details__meta-info-text">@Model.Location</span>
+                </div>
+                <div class="job-details__meta-info-p2">
+                    <span class="jobs-details__meta-info-text">@Model.Category.Name</span>
+                </div>
+                <div class="job-details__meta-info-p3">
+                    <span class="jobs-details__meta-info-text">@Model.Employer?.Username</span>
+                </div>
             </div>
         </div>
-        <div class="job-details__action">
-            <button id="respond-jobs" asp-controller="Profile" asp-action="ProfileAuth" class="job-button-login">
+        <div class="job-details__block-section">
+            <h3>Описание вакансии: </h3>
+            <p class="job-details__block-section-description">
+                @Model.Description
+            </p>
+            <div class="job-details__block-section-views">
+                <span class="job-details__block-section-views-text">@Model.CreatedAt.ToString("dd.MM.yyyy")</span>
+                <span class="job-details__block-section-views-text">@Model.Views</span>
+            </div>
+        </div>
+    </div>
+    <div class="job-details__block-two">
+        <div class="job-details__block-two-p1">
+            <a class="job-details__block-two-p1-click" asp-controller="Profile" asp-action="ProfileAuth">
                 Откликнуться
-            </button>
+            </a>
+            <a class="job-details__block-two-p1-contact" asp-controller="Profile" asp-action="ProfileAuth">
+                Показать контакты
+            </a>
+        </div>
+        <div class="job-details__block-two-p2">
+            <h3>Похожие объявления</h3>
+            <div id="jobsContainer" class="jobs-container jobs-container--detail">
+                @if (similarJobs.Any())
+                {
+                    @foreach (var job in similarJobs)
+                    {
+                        <a href="@Url.Action("Details","DetailInfo", new { id = job.Id })" class="job-container__card-link job-container__card--link">
+                            <div class="jobs-container__card jobs-container__card--detail ">
+                                <div class="jobs-container__card-info jobs-container__card-info--detail">
+                                    <div class="jobs-container__card-title">@job.Title</div>
+                                    <div class="jobs-container__card-employer">@job.Employer?.Username</div>
+                                    <div class="jobs-container__card-price">
+                                        <p class="jobs-container__card-price-p1">@job.Salary.ToString("N0") ₽</p>
+                                    </div>
+                                    <div class="jobs-container__card-description">
+                                        <p class="jobs-container__card-description-text">@job.Description </p>
+                                    </div>
+                                    <div class="jobs-container__card-footer jobs-container__card-footer--detail">
+                                        <div class="jobs-container__card-info-footer jobs-container__card-info--footer">
+                                            <div class="jobs-container__card-location">
+                                                <span class="jobs-container__card-location-text">@job.Location</span>
+                                            </div>
+                                            <div class="jobs-container__card-date">
+                                                <span class="jobs-container__card-date-text">@job.CreatedAt.ToString("dd.MM.yyyy")</span>
+                                            </div>
+                                            <div class="jobs-container__card-views">
+                                                <span class="jobs-container__card-views-text">@job.Views</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    }
+                }
+                else
+                {
+                    <p>
+                        Похожих обьявлений не найдено.
+                    </p>
+                }
+                
+            </div>
         </div>
     </div>
 </div>

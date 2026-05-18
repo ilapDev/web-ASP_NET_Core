@@ -1,6 +1,6 @@
 ﻿<link rel="stylesheet" href="@Url.Content("~/css/index.css")" />
 
-@model IEnumerable<Job> 
+@model IEnumerable<Job>
 <div class="menu-container">
     <div class="menu-container__search">
         <form class="menu-container__search-form" method="get" asp-controller="Home" asp-action="Index">
@@ -8,59 +8,70 @@
                    type="text"
                    name="search"
                    class="search-input-text"
-                   value="@Context.Request.Query["search"]"
-                   />
+                   placeholder="Поиск"
+                   value="@Context.Request.Query["search"]" />
         </form>
-    </div>
-    <div class="job-category">
-        <a href="#" class="job-card-link category-link active" data-id="0">
-            <div class="job-category__card">
-                <div class="job-category__card-title">Все</div>
-            </div>
-        </a>
-        @foreach (var category in ViewBag.Categories)
-        {
-            <a href="#" class="job-card-link category-link" data-id="@category.Id">
-                <div class="job-category__card-all">
-                    <div class="job-category__card-title">@category.Name</div>
-                </div>
-            </a>
-        }
+        <div class="menu-container__info">
+            <span class="menu-container__info-text">@Model.Count() объявлений</span>
+        </div>
+        <button type="submit" class="menu-container__search-job-btn">Найти</button>
     </div>
 </div>
-<div id="jobsContainer" class="jobs-container">
-        @foreach (var job in Model)
+<div class="job-category">
+    <span class="job-category__title">Популярные категории</span>
+    <div class="job-category__block">
+        @foreach (var category in ViewBag.PopularCategories)
         {
-            <a href="@Url.Action("Details","DetailInfo", new { id = job.Id })" class="job-container__card-link">
-                <div class="jobs-container__card">
-                        <div class="jobs-container__card-info">
-                            <div class="jobs-container__card-title">@job.Title</div>
-                            <div class="jobs-container__card-details">
-                                <div class="jobs-container__card-location">
-                                    <img src="~/fonts/Location.svg" class="jobs-container__card-location-icon">
-                                    <span class="jobs-container__card-location-text">@job.Location</span>
-                                </div>
-                                <div class="jobs-container__card-price">
-                                        @job.Salary.ToString("N0") ₽
-                                </div>
-                            </div>
-                            <div class="jobs-container__card-description">
-                                <p class="jobs-container__card-description-text">Описание: @job.Description </p>
-                            </div>
-                            
-                            
-                            <div class="jobs-container__card-date">
-                                <img src="~/fonts/Calendar.svg" class="jobs-container__card-location-icon">
-                                <span class="jobs-container__card-views-text">@job.CreatedAt</span>
-                                <div class="jobs-container__card-views">
-                                    <img src="~/fonts/Eye.svg" class="jobs-container__card-location-icon">
-                                    <span class="jobs-container__card-views-text">@job.Views</span>
-                                </div>
-                            </div>
-                        </div>
+            <a href="#" class="job-card-link category-link" data-id="@category.Id">
+                <div class="job-category__card">
+                    @if (!string.IsNullOrEmpty(category.Image))
+                    {
+                        <img class="job-category__card-icon" src="@category.Image" alt="Kатегория">
+                    }
+                    else
+                    {
+                        <div class="job-category__card-icon-placeholder" src="/fonts/default_category.svg"></div>
+                    }
+                    <div class="job-category__card-title">@category.Name</div>
+                    <div class="job-category__card-count">@category.JobCount вакансий</div>
                 </div>
             </a>
         }
+    </div>
+
+</div>
+
+<div id="jobsContainer" class="jobs-container">
+    @foreach (var job in Model)
+    {
+        <a href="@Url.Action("Details","DetailInfo", new { id = job.Id })" class="job-container__card-link">
+            <div class="jobs-container__card">
+                <div class="jobs-container__card-info">
+                    <div class="jobs-container__card-title">@job.Title</div>
+                    <div class="jobs-container__card-employer">@job.Employer?.Username</div>
+                    <div class="jobs-container__card-price">
+                        <p class="jobs-container__card-price-p1">@job.Salary.ToString("N0") ₽</p>
+                    </div>
+                    <div class="jobs-container__card-description">
+                        <p class="jobs-container__card-description-text">@job.Description </p>
+                    </div>
+                    <div class="jobs-container__card-footer">
+                        <div class="jobs-container__card-info-footer">
+                            <div class="jobs-container__card-location">
+                                <span class="jobs-container__card-location-text">@job.Location</span>
+                            </div>
+                            <div class="jobs-container__card-date">
+                                <span class="jobs-container__card-date-text">@job.CreatedAt.ToString("dd.MM.yyyy")</span>
+                            </div>
+                            <div class="jobs-container__card-views">
+                                <span class="jobs-container__card-views-text">@job.Views</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    }
 </div>
 <script src="@Url.Content("~/js/site.js")"></script>
 

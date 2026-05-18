@@ -1,0 +1,100 @@
+﻿@model User
+   <div class="profile-container">
+       <h1 class="profile-container__h1">Личный кабинет</h1>
+       <div class="profile-container__block">
+            <div class="profile-container__card">
+                <div class="profile-container__card-user">
+                    <div class="profile-container__card-user-icon">
+                        <img class="profile-container__card-user-avatar" src="~/fonts/user.svg" />
+                    </div>                 
+                    <div class="profile-container__card-user-data">
+                        <h2 class="profile-container__card-user-h3">@Model.Username</h2>
+                        <p class="profile-container__card-user-data-p">На сайте с @Model.CreatedAt.ToString()</p>
+                    </div>
+                    <div class="profile-container__card-user-info">
+                        <div class="profile-container__card-user-info-p1">
+                            <p class="profile-container__card-user-info-text">@Model.Phone</p>
+                        </div>
+                        <div class="profile-container__card-user-info-p2">
+                            <p class="profile-container__card-user-info-text">@Model.Address</p>
+                        </div>
+                    </div>
+                    <div class="profile-container__card-user-setting">
+                        <a class="profile-container__card-user-setting-bth">Настройки профиля</a>
+                    </div>
+                </div>
+                <div class="profile-container__card-static">
+                    <h3 class="profile-container__card-static-h3">Статистика</h3>
+                    <div class="profile-container__card-static-activ-block">
+                        <div class="profile-container__card-static-activ-block-text">
+                            <p class="profile-container__card-static-active-count-title">Активные обьявления</p>
+                        </div>
+                        <p class="profile-container__card-static-active-count-text">0</p>
+                    </div>
+                    <div class="profile-container__card-static-activ-block-two">
+                        <div class="profile-container__card-static-activ-block-text-two">
+                            <p class="profile-container__card-static-active-count-title">Просмотры</p>
+                        </div>
+                        <p class="profile-container__card-static-active-count-text">12</p>
+                    </div>
+                </div>         
+            </div>
+
+            <div class="profile-container__card-setting">
+                <div class="profile-container__card-setting-p1">
+                    <div class="profile-container__card-setting-p1-header">
+                        <h1 class="profile-container__card-setting-p1-header-title">Мои объявления</h1>
+                        <a  asp-controller="AddJob" asp-action="Index" class="profile-container__card-setting-p1-header-add"></a>
+                    </div>
+                <div class="jobs-container jobs-container_profile ">
+                    @if (ViewBag.Jobs.Count > 0)
+                    {
+                        foreach (var job in ViewBag.Jobs) 
+                        {
+                        
+                            <a href="@Url.Action("Details","DetailInfo", new { id = job.Id })" class="job-container__card-link_profile">
+                                <div class="jobs-container__card card-profile ">
+                                    <div class="jobs-container__card-info">
+                                        <div class="jobs-container__card-title">@job.Title</div>
+                                        <div class="jobs-container__card-employer">@job.Employer?.Username</div>
+                                        <div class="jobs-container__card-price">
+                                            <p class="jobs-container__card-price-p1">@job.Salary.ToString("N0") ₽</p>
+                                        </div>
+                                        <div class="jobs-container__card-description">
+                                            <p class="jobs-container__card-description-text">@job.Description </p>
+                                        </div>
+                                        <div class="jobs-container__card-footer">
+                                            <div class="jobs-container__card-info-footer">
+                                                <div class="jobs-container__card-location">
+                                                    <span class="jobs-container__card-location-text">@job.Location</span>
+                                                </div>
+                                                <div class="jobs-container__card-date">
+                                                    <span class="jobs-container__card-date-text">@job.CreatedAt.ToString("dd.MM.yyyy")</span>
+                                                </div>
+                                                <div class="jobs-container__card-views">
+                                                    <span class="jobs-container__card-views-text">@job.Views</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        }
+                    }
+                    else 
+                    {
+                    <div class="profile-container__block-null">
+                        <img src="~/fonts/Check.svg" class="profile-container__block-null-icon" />
+                        <p class="profile-container__block-null-title">У вас пока нет вакансий</p>
+                        <p class="profile-container__block-null-description">Разместите свою первую вакансию, чтобы начать получать отклики.</p>
+                        <a asp-controller="AddJob" asp-action="Index" class="profile-container__block-null-add">
+                            Добавить объявление
+                        </a>
+                     </div>
+                    }
+                </div>
+                </div>
+            </div>
+       </div>
+       
+  </div>

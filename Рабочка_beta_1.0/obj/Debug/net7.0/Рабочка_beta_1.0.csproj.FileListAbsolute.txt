@@ -40,3 +40,4 @@ C:\Users\илья\OneDrive\Документы\Рабочка_Project\Рабоч�
 C:\Users\илья\OneDrive\Документы\Рабочка_Project\Рабочка_beta_1.0\Рабочка_beta_1.0\bin\Debug\net7.0\Pomelo.EntityFrameworkCore.MySql.dll
 C:\Users\илья\OneDrive\Документы\Рабочка_Project\Рабочка_beta_1.0\Рабочка_beta_1.0\bin\Debug\net7.0\System.CodeDom.dll
 C:\Users\илья\OneDrive\Документы\Рабочка_Project\Рабочка_beta_1.0\Рабочка_beta_1.0\obj\Debug\net7.0\Рабочка_beta_1.0.csproj.CopyComplete
+C:\Users\илья\OneDrive\Документы\Рабочка_Project\Рабочка_beta_1.0\Рабочка_beta_1.0\bin\Debug\net7.0\BCrypt.Net-Next.dll

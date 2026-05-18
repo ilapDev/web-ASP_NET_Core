@@ -5,6 +5,14 @@
       "PackagePath": "staticwebassets\\Рабочка_beta_1.0.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\илья\\OneDrive\\Документы\\Рабочка_Project\\Рабочка_beta_1.0\\Рабочка_beta_1.0\\wwwroot\\css\\add-job.css",
+      "PackagePath": "staticwebassets\\css\\add-job.css"
+    },
+    {
+      "Id": "C:\\Users\\илья\\OneDrive\\Документы\\Рабочка_Project\\Рабочка_beta_1.0\\Рабочка_beta_1.0\\wwwroot\\css\\detail.css",
+      "PackagePath": "staticwebassets\\css\\detail.css"
+    },
+    {
       "Id": "C:\\Users\\илья\\OneDrive\\Документы\\Рабочка_Project\\Рабочка_beta_1.0\\Рабочка_beta_1.0\\wwwroot\\css\\font.css",
       "PackagePath": "staticwebassets\\css\\font.css"
     },
@@ -61,6 +69,34 @@
       "PackagePath": "staticwebassets\\fonts\\Location.svg"
     },
     {
+      "Id": "C:\\Users\\илья\\OneDrive\\Документы\\Рабочка_Project\\Рабочка_beta_1.0\\Рабочка_beta_1.0\\wwwroot\\fonts\\avatar.png",
+      "PackagePath": "staticwebassets\\fonts\\avatar.png"
+    },
+    {
+      "Id": "C:\\Users\\илья\\OneDrive\\Документы\\Рабочка_Project\\Рабочка_beta_1.0\\Рабочка_beta_1.0\\wwwroot\\fonts\\category.svg",
+      "PackagePath": "staticwebassets\\fonts\\category.svg"
+    },
+    {
+      "Id": "C:\\Users\\илья\\OneDrive\\Документы\\Рабочка_Project\\Рабочка_beta_1.0\\Рабочка_beta_1.0\\wwwroot\\fonts\\date.svg",
+      "PackagePath": "staticwebassets\\fonts\\date.svg"
+    },
+    {
+      "Id": "C:\\Users\\илья\\OneDrive\\Документы\\Рабочка_Project\\Рабочка_beta_1.0\\Рабочка_beta_1.0\\wwwroot\\fonts\\default_caterory.svg",
+      "PackagePath": "staticwebassets\\fonts\\default_caterory.svg"
+    },
+    {
+      "Id": "C:\\Users\\илья\\OneDrive\\Документы\\Рабочка_Project\\Рабочка_beta_1.0\\Рабочка_beta_1.0\\wwwroot\\fonts\\delivery_category.svg",
+      "PackagePath": "staticwebassets\\fonts\\delivery_category.svg"
+    },
+    {
+      "Id": "C:\\Users\\илья\\OneDrive\\Документы\\Рабочка_Project\\Рабочка_beta_1.0\\Рабочка_beta_1.0\\wwwroot\\fonts\\down.svg",
+      "PackagePath": "staticwebassets\\fonts\\down.svg"
+    },
+    {
+      "Id": "C:\\Users\\илья\\OneDrive\\Документы\\Рабочка_Project\\Рабочка_beta_1.0\\Рабочка_beta_1.0\\wwwroot\\fonts\\expand.svg",
+      "PackagePath": "staticwebassets\\fonts\\expand.svg"
+    },
+    {
       "Id": "C:\\Users\\илья\\OneDrive\\Документы\\Рабочка_Project\\Рабочка_beta_1.0\\Рабочка_beta_1.0\\wwwroot\\fonts\\icon.png",
       "PackagePath": "staticwebassets\\fonts\\icon.png"
     },
@@ -69,8 +105,92 @@
       "PackagePath": "staticwebassets\\fonts\\icon.svg"
     },
     {
+      "Id": "C:\\Users\\илья\\OneDrive\\Документы\\Рабочка_Project\\Рабочка_beta_1.0\\Рабочка_beta_1.0\\wwwroot\\fonts\\info.svg",
+      "PackagePath": "staticwebassets\\fonts\\info.svg"
+    },
+    {
+      "Id": "C:\\Users\\илья\\OneDrive\\Документы\\Рабочка_Project\\Рабочка_beta_1.0\\Рабочка_beta_1.0\\wwwroot\\fonts\\it_category.svg",
+      "PackagePath": "staticwebassets\\fonts\\it_category.svg"
+    },
+    {
+      "Id": "C:\\Users\\илья\\OneDrive\\Документы\\Рабочка_Project\\Рабочка_beta_1.0\\Рабочка_beta_1.0\\wwwroot\\fonts\\key_category.svg",
+      "PackagePath": "staticwebassets\\fonts\\key_category.svg"
+    },
+    {
+      "Id": "C:\\Users\\илья\\OneDrive\\Документы\\Рабочка_Project\\Рабочка_beta_1.0\\Рабочка_beta_1.0\\wwwroot\\fonts\\learn_category.svg",
+      "PackagePath": "staticwebassets\\fonts\\learn_category.svg"
+    },
+    {
+      "Id": "C:\\Users\\илья\\OneDrive\\Документы\\Рабочка_Project\\Рабочка_beta_1.0\\Рабочка_beta_1.0\\wwwroot\\fonts\\location-14px.svg",
+      "PackagePath": "staticwebassets\\fonts\\location-14px.svg"
+    },
+    {
+      "Id": "C:\\Users\\илья\\OneDrive\\Документы\\Рабочка_Project\\Рабочка_beta_1.0\\Рабочка_beta_1.0\\wwwroot\\fonts\\logo.svg",
+      "PackagePath": "staticwebassets\\fonts\\logo.svg"
+    },
+    {
       "Id": "C:\\Users\\илья\\OneDrive\\Документы\\Рабочка_Project\\Рабочка_beta_1.0\\Рабочка_beta_1.0\\wwwroot\\fonts\\search.svg",
       "PackagePath": "staticwebassets\\fonts\\search.svg"
+    },
+    {
+      "Id": "C:\\Users\\илья\\OneDrive\\Документы\\Рабочка_Project\\Рабочка_beta_1.0\\Рабочка_beta_1.0\\wwwroot\\fonts\\svg.svg",
+      "PackagePath": "staticwebassets\\fonts\\svg.svg"
+    },
+    {
+      "Id": "C:\\Users\\илья\\OneDrive\\Документы\\Рабочка_Project\\Рабочка_beta_1.0\\Рабочка_beta_1.0\\wwwroot\\fonts\\tech_category.svg",
+      "PackagePath": "staticwebassets\\fonts\\tech_category.svg"
+    },
+    {
+      "Id": "C:\\Users\\илья\\OneDrive\\Документы\\Рабочка_Project\\Рабочка_beta_1.0\\Рабочка_beta_1.0\\wwwroot\\fonts\\user.svg",
+      "PackagePath": "staticwebassets\\fonts\\user.svg"
+    },
+    {
+      "Id": "C:\\Users\\илья\\OneDrive\\Документы\\Рабочка_Project\\Рабочка_beta_1.0\\Рабочка_beta_1.0\\wwwroot\\fonts\\user_img.svg",
+      "PackagePath": "staticwebassets\\fonts\\user_img.svg"
+    },
+    {
+      "Id": "C:\\Users\\илья\\OneDrive\\Документы\\Рабочка_Project\\Рабочка_beta_1.0\\Рабочка_beta_1.0\\wwwroot\\fonts\\user_ivan.jpg",
+      "PackagePath": "staticwebassets\\fonts\\user_ivan.jpg"
+    },
+    {
+      "Id": "C:\\Users\\илья\\OneDrive\\Документы\\Рабочка_Project\\Рабочка_beta_1.0\\Рабочка_beta_1.0\\wwwroot\\images\\add.svg",
+      "PackagePath": "staticwebassets\\images\\add.svg"
+    },
+    {
+      "Id": "C:\\Users\\илья\\OneDrive\\Документы\\Рабочка_Project\\Рабочка_beta_1.0\\Рабочка_beta_1.0\\wwwroot\\images\\company.svg",
+      "PackagePath": "staticwebassets\\images\\company.svg"
+    },
+    {
+      "Id": "C:\\Users\\илья\\OneDrive\\Документы\\Рабочка_Project\\Рабочка_beta_1.0\\Рабочка_beta_1.0\\wwwroot\\images\\document.svg",
+      "PackagePath": "staticwebassets\\images\\document.svg"
+    },
+    {
+      "Id": "C:\\Users\\илья\\OneDrive\\Документы\\Рабочка_Project\\Рабочка_beta_1.0\\Рабочка_beta_1.0\\wwwroot\\images\\email.svg",
+      "PackagePath": "staticwebassets\\images\\email.svg"
+    },
+    {
+      "Id": "C:\\Users\\илья\\OneDrive\\Документы\\Рабочка_Project\\Рабочка_beta_1.0\\Рабочка_beta_1.0\\wwwroot\\images\\google.svg",
+      "PackagePath": "staticwebassets\\images\\google.svg"
+    },
+    {
+      "Id": "C:\\Users\\илья\\OneDrive\\Документы\\Рабочка_Project\\Рабочка_beta_1.0\\Рабочка_beta_1.0\\wwwroot\\images\\location.svg",
+      "PackagePath": "staticwebassets\\images\\location.svg"
+    },
+    {
+      "Id": "C:\\Users\\илья\\OneDrive\\Документы\\Рабочка_Project\\Рабочка_beta_1.0\\Рабочка_beta_1.0\\wwwroot\\images\\password.svg",
+      "PackagePath": "staticwebassets\\images\\password.svg"
+    },
+    {
+      "Id": "C:\\Users\\илья\\OneDrive\\Документы\\Рабочка_Project\\Рабочка_beta_1.0\\Рабочка_beta_1.0\\wwwroot\\images\\rost.svg",
+      "PackagePath": "staticwebassets\\images\\rost.svg"
+    },
+    {
+      "Id": "C:\\Users\\илья\\OneDrive\\Документы\\Рабочка_Project\\Рабочка_beta_1.0\\Рабочка_beta_1.0\\wwwroot\\images\\setting.svg",
+      "PackagePath": "staticwebassets\\images\\setting.svg"
+    },
+    {
+      "Id": "C:\\Users\\илья\\OneDrive\\Документы\\Рабочка_Project\\Рабочка_beta_1.0\\Рабочка_beta_1.0\\wwwroot\\images\\time.svg",
+      "PackagePath": "staticwebassets\\images\\time.svg"
     },
     {
       "Id": "C:\\Users\\илья\\OneDrive\\Документы\\Рабочка_Project\\Рабочка_beta_1.0\\Рабочка_beta_1.0\\wwwroot\\js\\site.js",

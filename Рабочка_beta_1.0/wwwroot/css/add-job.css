@@ -1,0 +1,109 @@
+﻿/* Контейнеры */
+.container-add {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    margin-top: 50px;
+}
+
+.container-add__main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+
+.container-add__heading {
+    height: 68px;
+    color: #1E293B;
+    font: 700 30px/36px "Inter", sans-serif;
+    text-align: left;
+}
+
+.container-add__main-form {
+    padding: 32px;
+    width: 736px;
+    height: auto;
+    background: rgba(255, 255, 255, 1);
+    border: 1px solid rgba(226, 232, 240, 1);
+    border-radius: 24px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+.container-add__main-form-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 90px;
+
+}
+.container-add__main-form-title_bottom {
+    height: auto;
+}
+
+.container-add__main-form-title_btn {
+    display: flex;
+    align-items: flex-end;
+    border-top: 1px solid rgba(226, 232, 240, 1);
+    height: auto;
+    margin-top: 24px;
+}
+
+.container-add__main-form-flex {
+    display: flex;
+    gap: 24px;
+} 
+
+/* Метки и поля ввода */
+.container-add__main-form-label {
+    height: 28px;
+    color: #1E293B;
+    font: 700 14px/20px "Inter", sans-serif;
+}
+
+.container-add__main-form-input {
+    width: auto;
+    max-width: 670px;
+    min-width: 323px; 
+    height: 50px;
+    background: rgba(245, 247, 250, 1);
+    border: 1px solid rgba(226, 232, 240, 1);
+    border-radius: 12px;
+    box-sizing: border-box;
+    outline: none;
+    color: #676E78;
+    font: 400 16px/20 "Inter", sans-serif;
+    padding-left: 16px;
+}
+.container-add__main-form-input_text {
+    width: 100%;
+    max-width: 670px;
+    height: 170px;
+    padding: 16px;
+    border: 1px solid rgba(226, 232, 240, 1);
+    border-radius: 12px;
+    background: rgba(245, 247, 250, 1);
+    color: #676E78;
+    font: 400 16px/20 "Inter", sans-serif;
+    box-sizing: border-box;
+    resize: none;
+    overflow: auto; 
+    line-height: 20px;
+}
+/* Кнопка */
+.container-add__main-form-add-btn {
+    width: 280.3px;
+    height: 56px;
+    background: rgba(76, 175, 79, 1);
+    border-radius: 12px;
+    color: #FFFFFF;
+    text-align: center;
+    border-radius: 12px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    margin-top: 20px;
+    font: 700 16px/24px "Inter", sans-serif;
+}

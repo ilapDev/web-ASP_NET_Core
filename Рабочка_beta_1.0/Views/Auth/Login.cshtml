@@ -4,15 +4,18 @@
             <button class="auth-tab active" onclick="showLogin()">Вход</button>
             <button class="auth-tab" onclick="showRegister()">Регистрация</button>
         </div>
-
-        <form method="post" class="login-form " id="loginForm">
-
+        
+        <form method="post" asp-action="Login" class="login-form" id="loginForm">
+            @Html.AntiForgeryToken()
             <input class="login-input" name="login" placeholder="Логин" />
             <input class="login-input" name="password" type="password" placeholder="Пароль" />
 
             <button class="job-button-auth" type="submit">Войти</button>
+
         </form>
+
         <form method="post" asp-action="Register" class="login-form hidden" id="registerForm">
+            @Html.AntiForgeryToken()
             <input class="login-input" name="Username" placeholder="Имя" />
             <input class="login-input" name="Phone" placeholder="Номер телефона" />
             <input class="login-input" name="Adress" placeholder="Город" />
@@ -20,6 +23,7 @@
             <input class="login-input" name="Password" type="password" placeholder="Пароль" />
             <button class="job-button-auth " type="submit">Зарегистрироваться</button>
         </form>
+        <div id="errorMessage" class="error-message" style="display: none;"></div>      
     </div>
 </div>
 
@@ -40,4 +44,65 @@
         document.querySelectorAll(".auth-tab")[0].classList.remove("active");
 
     }
+    const loginForm = document.getElementById("loginForm");
+    const errorDiv = document.getElementById("errorMessage");
+
+    loginForm.addEventListener("submit", function (e) {
+        e.preventDefault(); 
+
+        const formData = new FormData(loginForm);
+
+        fetch("/Auth/Login", {
+            method: "POST",
+            body: formData
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (!data.success) {
+                    showError(data.message);
+                } else {
+                    location.href = "/"; 
+                }
+            });
+    });
+
+    const registerForm = document.getElementById("registerForm");
+
+    registerForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const formData = new FormData(registerForm);
+
+        fetch("/Auth/Register", {
+            method: "POST",
+            body: formData
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (!data.success) {
+                showError(data.message);
+            } else {
+                showError("Регистрация успешна!", true);
+                setTimeout(() => showLogin(), 1000);
+            }
+        });
+    });
+
+    function showError(message, success = false) {
+        errorDiv.innerText = message;
+        errorDiv.style.color = success ? "green" : "red";
+        errorDiv.style.opacity = "1";
+        errorDiv.style.display = "block";
+
+        // скрыть через 5 сек
+        setTimeout(() => {
+            errorDiv.style.opacity = "0";
+        }, 5000);
+    }
+    document.querySelectorAll(".login-input").forEach(input => {
+        input.addEventListener("input", () => {
+        errorDiv.style.opacity = "0";
+        });
+    })
+
 </script>

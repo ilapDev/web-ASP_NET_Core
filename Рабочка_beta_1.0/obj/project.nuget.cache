@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "tURmggbSRafqb1gGgYviKVu2yz8+voM1Xjkkfnb7MSOZpVPVKe9Ez5bOKUSZyU2v6If5MP/7l2h6Kx/fH++OYQ==",
+  "dgSpecHash": "vICbpwIP7dvHtUi1NBJ2KqbR4lv8FsZYwOpwiOBPl0XWzLUOtqrsVsnyZQ7rBVi94fxVniA+ecm0r4oHr5eeAQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\илья\\OneDrive\\Документы\\Рабочка_Project\\Рабочка_beta_1.0\\Рабочка_beta_1.0\\Рабочка_beta_1.0.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\илья\\.nuget\\packages\\bcrypt.net-next\\4.1.0\\bcrypt.net-next.4.1.0.nupkg.sha512",
     "C:\\Users\\илья\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\илья\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.0\\microsoft.entityframeworkcore.7.0.0.nupkg.sha512",
     "C:\\Users\\илья\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.0\\microsoft.entityframeworkcore.abstractions.7.0.0.nupkg.sha512",

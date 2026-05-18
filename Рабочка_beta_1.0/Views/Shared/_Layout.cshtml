@@ -14,28 +14,45 @@
     <header>
         <div class="header-container">
             <ul class="header-container__list">
+                <li class="header-container__item ">
+                    <a class="header-container__text" asp-area="" asp-controller="Home" asp-action="Index">
+                        <img src="/fonts/logo.svg" alt="Логотип" class="header-container__logo" />
+                    </a>
+                </li>
                 <li class="header-container__item">
-                    <a class="header-container__text" asp-area="" asp-controller="Home" asp-action="Index">Рабочка</a>
+                     <a class="header-container__text" asp-area="" asp-controller="Home" asp-action="Index">Поиск работы</a>
+                </li>
+                <li class="header-container__item">
+                    <a class="header-container__text" asp-area="" asp-controller="Profile" asp-action="Profile">Разместить вакансию</a>
+                </li>
+                <li class="header-container__item">
+                    <a class="header-container__text" asp-area="" asp-controller="Home" asp-action="Index">О нас</a>
                 </li>
             </ul>
-            @if (User.Identity != null && User.Identity.IsAuthenticated)
-            {
-                <span class="header-container__text">@User.Identity.Name</span>
-                <!-- Форма для выхода -->
-                <form asp-controller="Auth" asp-action="Logout" method="post" class="d-inline">
-                    <button type="submit" class="job-button-exit">
-                        Выйти
-                    </button>
-                </form>
-            }
-            else
-            {
-                <form asp-controller="Auth" asp-action="Logout" method="post" class="d-inline">
-                    <button class="job-button-login" asp-controller="Auth" asp-action="Login">
+            <div class="header-container__menu">
+                @if (User?.Identity?.IsAuthenticated == true)
+                { 
+                    <div class="header-container__menu-profile" onclick="toggleMenu()"> 
+                        <span class="header-container__menu-profile-name">@User.Identity.Name</span>
+                        <img class="header-container__menu-profile-avatar" src="~/fonts/avatar.png"/>
+                    </div>
+
+                    <div class="header-container__menu-dropdown" id="dropdownMenu"> 
+                        <a asp-controller="Profile" asp-action="Profile">Мой профиль</a>
+                        <a href="#">Настройки</a>
+                         <!-- Форма для выхода -->
+                        <form asp-controller="Auth" asp-action="Logout" method="post" class="d-inline">
+                            <button type="submit" asp-controller="Auth" asp-action="Logout">Выйти</button>
+                        </form>
+                    </div>
+                }
+                else
+                {
+                    <a class="job-button-login" asp-controller="Auth" asp-action="Login">
                         Войти
-                    </button>
-                </form>
-            }
+                    </a>
+                }
+            </div>
         </div>
     </header>
     <main role="main" class="main-content">
@@ -43,9 +60,50 @@
             @RenderBody()
         </div>
     </main>
+    
     <footer>
         <div class="container-footer">
-            &copy; 2026 - Рабочка - сервис поиска подработки в твоем городе  </a>
+            <div class="container-footer__info">
+                <div class="container-footer__info-card-p1">
+                    <a class="container-footer__logo-text" asp-controller="Home" asp-action="Index">
+                        <img src="/fonts/logo.svg" alt="Логотип" class="container-footer__logo" />
+                    </a>
+                    <p class="container-footer__info-card-text-company">
+                        Рабочка - современный сервис для поиска подработки в твоём городе.
+                        Найти подработку стало действительно проще, все обьявления в одном месте.
+                    </p>
+                </div>
+                <div class="container-footer__info-card-p2">
+                    <p class="container-footer__info-card-header-text">Навигация</p>
+                    <ul class="container-footer__info-card-ul">
+                        <li class="container-footer__info-card-item">
+                            <a class="container-footer__info-card-text" asp-controller="Home" asp-action="Index">Поиск работы</a>
+                        </li>
+                        <li class="container-footer__info-card-item">
+                            <a class="container-footer__info-card-text" asp-controller="Profile" asp-action="Profile">Разместить вакансию</a>
+                        </li>
+                        <li class="container-footer__info-card-item">
+                            <a class="container-footer__info-card-text" asp-controller="Home" asp-action="Index">О нас</a>
+                        </li>
+                    </ul>
+
+                </div>
+                <div class="container-footer__info-card-p3">
+                    <p class="container-footer__info-card-header-text">Правовая информация</p>
+                    <ul class="container-footer__info-card-ul-pravo">
+                        <li class="container-footer__info-card-ul-pravo-item">
+                            <a class="container-footer__info-card-ul-pravo-text" >Политика конфиденциальности</a>
+                        </li>
+                        <li class="container-footer__info-card-ul-pravo-item">
+                            <a class="container-footer__info-card-ul-pravo-text">Пользовательское соглашение</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="container-footer__bottom">
+                <span class="container-footer__bottom-copy">&copy; 2026 Все права защищены</span>
+                <a href="https://t.me/ilapdev" class="container-footer__bottom-link">Разработано ilapdev </a>
+            </div>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
@@ -53,3 +111,19 @@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
+
+ <script>
+    function toggleMenu() {
+        const menu = document.getElementById("dropdownMenu");
+        menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+    }
+
+    document.addEventListener("click", function(e) {
+        const menu = document.getElementById("dropdownMenu");
+        const trigger = document.querySelector(".header-container__menu-profile");
+        if (!trigger || !menu) return;
+        if (!trigger.contains(e.target)) {
+            menu.style.display = "none";
+        }
+    });
+</script>

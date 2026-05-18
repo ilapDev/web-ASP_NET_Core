@@ -27,7 +27,7 @@ public partial class IjobsContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseMySql("server=127.0.0.1;port=3306;user=root;password=211103;database=ijobs", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.31-mysql"));
+        => optionsBuilder.UseMySql("server=localhost;database=ijobs;user id=root;password=211103", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.31-mysql"));
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -47,6 +47,9 @@ public partial class IjobsContext : DbContext
             entity.Property(e => e.Description)
                 .HasColumnType("text")
                 .HasColumnName("description");
+            entity.Property(e => e.Image)
+                .HasMaxLength(100)
+                .HasColumnName("image");
             entity.Property(e => e.Name)
                 .HasMaxLength(40)
                 .HasColumnName("name");
@@ -77,6 +80,16 @@ public partial class IjobsContext : DbContext
             entity.Property(e => e.Location)
                 .HasMaxLength(100)
                 .HasColumnName("location");
+            entity.Property(e => e.PaymentFrom)
+                .HasPrecision(10, 2)
+                .HasColumnName("payment_from");
+            entity.Property(e => e.PaymentPeriod)
+                .HasDefaultValueSql("'month'")
+                .HasColumnType("enum('hour','day','week','month','project')")
+                .HasColumnName("payment_period");
+            entity.Property(e => e.PaymentTo)
+                .HasPrecision(10, 2)
+                .HasColumnName("payment_to");
             entity.Property(e => e.Salary)
                 .HasPrecision(10, 2)
                 .HasColumnName("salary");
@@ -161,7 +174,7 @@ public partial class IjobsContext : DbContext
                 .HasMaxLength(20)
                 .HasColumnName("login");
             entity.Property(e => e.Password)
-                .HasMaxLength(20)
+                .HasMaxLength(60)
                 .HasColumnName("password");
             entity.Property(e => e.Phone)
                 .HasMaxLength(20)

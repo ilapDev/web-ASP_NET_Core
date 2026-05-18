@@ -3,10 +3,10 @@
     const input = document.getElementById("search-input");
     const container = document.getElementById("jobsContainer");
     const categoryLinks = document.querySelectorAll(".category-link");
+    const searchButton = document.querySelector(".menu-container__search-job-btn");
 
     let selectedCategory = "0";
-    let timer;
-    let formattedSalary = "Зарплата не указана";
+    
    
     function updateJobs() {
 
@@ -20,39 +20,39 @@
                     return;
                 }
                 data.forEach(job => {
-                    
-                    if (job.salary !== undefined && job.salary !== null) {
+                    let formattedSalary = "Зарплата не указана";
+                    if (job.salary !== undefined && job.salary !== null && job.salary > 0) {
                         formattedSalary = job.salary.toLocaleString() + " ₽";
                     }
-                    const date = job.createdAt.replace("T", " ");
+                    const date = job.createdAt.split('T')[0].split('-').reverse().join('.');
                     container.innerHTML += `
-                    <a href="/DetailInfo/Details/${job.id}" class="job-container__card-link">  
+                     <a href="/DetailInfo/Details/${job.id}" class="job-container__card-link">  
                         <div class="jobs-container__card">
                             <div class="jobs-container__card-info">
                                 <div class="jobs-container__card-title">${job.title}</div>
-                                <div class="jobs-container__card-details">
-                                    <div class="jobs-container__card-location">
-                                        <img src="/fonts/Location.svg" class="jobs-container__card-location-icon">
-                                        <span class="jobs-container__card-location-text">${job.location}</span>
-                                    </div>
-                                    <div class="jobs-container__card-price">
-                                        ${formattedSalary}
-                                    </div>
+                                <div class="jobs-container__card-employer">${job.employer?.username || 'Не указан'}</div>
+                                <div class="jobs-container__card-price">
+                                    <p class="jobs-container__card-price-p1">${formattedSalary}</p>
                                 </div>
                                 <div class="jobs-container__card-description">
-                                    <p class="jobs-container__card-description-text">Описание: ${job.description}</p>
+                                    <p class="jobs-container__card-description-text">${job.description}</p>
                                 </div>
-                                <div class="jobs-container__card-date">
-                                    <img src="/fonts/Calendar.svg" class="jobs-container__card-location-icon">
-                                    <span class="jobs-container__card-views-text">${date}</span>
-                                    <div class="jobs-container__card-views">
-                                        <img src="/fonts/Eye.svg" class="jobs-container__card-location-icon">
-                                        <span class="jobs-container__card-views-text">${job.views}</span>
+                                <div class="jobs-container__card-footer">
+                                    <div class="jobs-container__card-info-footer">
+                                        <div class="jobs-container__card-location">
+                                            <span class="jobs-container__card-location-text">${job.location}</span>
+                                        </div>
+                                        <div class="jobs-container__card-date">
+                                            <span class="jobs-container__card-date-text">${date}</span>
+                                        </div>
+                                        <div class="jobs-container__card-views">
+                                            <span class="jobs-container__card-views-text">${job.views}</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </a>
+                     </a>
                     `;
                 });
 
@@ -60,15 +60,10 @@
     }
 
     // поиск
-    input.addEventListener("input", () => {
-
-        clearTimeout(timer);
-
-        timer = setTimeout(() => {
-            updateJobs();
-        }, 300);
-
-    });
+    searchButton.addEventListener("click", (e) => {
+        e.preventDefault();
+        updateJobs()
+    })
 
     // категории
     categoryLinks.forEach(link => {

@@ -19,7 +19,16 @@ namespace Рабочка_beta_1._0.Controllers
                 .FirstOrDefault(j => j.Id == id);
             if (job == null)
                 return NotFound();
-            return View(job);
+
+            var similarJobs = _context.Jobs
+                .Include(y => y.Category)
+                .Include(e => e.Employer)
+                .Where(j => j.Id != id && j.CategoryId == job.CategoryId)
+                .Take(5)
+                .ToList();
+            ViewBag.Job = job;
+            ViewBag.SimilarJobs = similarJobs;
+                return View(job);
         }
     }
 }

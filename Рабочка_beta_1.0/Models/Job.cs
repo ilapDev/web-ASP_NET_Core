@@ -15,6 +15,12 @@ public partial class Job
 
     public decimal Salary { get; set; }
 
+    public string PaymentPeriod { get; set; } = null!;
+
+    public decimal? PaymentFrom { get; set; }
+
+    public decimal? PaymentTo { get; set; }
+
     public int CategoryId { get; set; }
 
     public int EmployerId { get; set; }

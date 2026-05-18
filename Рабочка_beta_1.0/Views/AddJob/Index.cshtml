@@ -1,0 +1,59 @@
+﻿<form method="post" asp-controller="AddJob" asp-action="Create">
+    @Html.AntiForgeryToken()
+    <div class="container-add">
+        <div class="container-add__main">
+            <h1 class="container-add__heading">Размещение обьявления</h1>
+            <div class="container-add__main-form">
+                <div class="container-add__main-form-title">
+                    <span class="container-add__main-form-label" required>Название вакансии</span>
+                    <input name="Title" class="container-add__main-form-input" />
+                </div>
+                <div class="container-add__main-form-title">
+                    <span class="container-add__main-form-label">Категория</span>           
+                    <select name="CategoryId" class="container-add__main-form-input" required>
+                        <option value="" >Категория</option>
+                        @foreach (var category in ViewBag.Categories)
+                        {
+                            <option value="@category.Id" name="Category" >@category.Name</option>
+                        }
+                    </select>
+                </div>
+                <div class="container-add__main-form-flex">
+                    <div class="container-add__main-form-title">
+                        <span class="container-add__main-form-label">Зарплата</span>
+                        <input name="Salary" class="container-add__main-form-input" required />
+                    </div>
+                    <div class="container-add__main-form-title">
+                        <span class="container-add__main-form-label">Период оплаты</span>
+                        <select name="PaymentPeriod" class="container-add__main-form-input" required>
+                            <option value="">Выберите период оплаты</option>
+                            <option value="hour">За час</option>
+                            <option value="day">За день</option>
+                            <option value="week">За неделю</option>
+                            <option value="month">За месяц</option>
+                            <option value="project">За проект</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="container-add__main-form-flex">
+                    <div class="container-add__main-form-title">
+                        <span class="container-add__main-form-label">Телефон</span>
+                        <input name="ContactPhone" class="container-add__main-form-input" required />
+                    </div>
+                    <div class="container-add__main-form-title">
+                        <span class="container-add__main-form-label">Локация</span>
+                        <input name="Location" class="container-add__main-form-input" required />
+                    </div>
+                </div>
+                
+                <div class="container-add__main-form-title container-add__main-form-title_bottom">
+                    <span class="container-add__main-form-label">Описание</span>
+                    <textarea name="Description" class="container-add__main-form-input container-add__main-form-input_text required "></textarea>
+                </div>
+                <div class="container-add__main-form-title container-add__main-form-title_btn">
+                    <button type="submit" class="container-add__main-form-add-btn">Опубликовать объявление</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

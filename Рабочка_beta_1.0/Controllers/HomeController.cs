@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
+using System.Security.Claims;
 using Рабочка_beta_1._0.Models;
 
 namespace Рабочка_beta_1._0.Controllers
@@ -15,7 +16,25 @@ namespace Рабочка_beta_1._0.Controllers
         public async Task<ActionResult> Index(string search, string category)
         {
             var jobs = await GetJobsAsync(search, category);
-            ViewBag.Categories = await _context.Categories.ToListAsync();
+
+            var allCategories = await _context.Categories
+                .Select(c => new {
+                    c.Id,
+                    c.Name,
+                    c.Description,
+                    c.Image,
+                    JobCount = _context.Jobs.Count(j => j.CategoryId == c.Id)
+                })
+                .ToListAsync();
+
+            ViewBag.PopularCategories = allCategories
+                .Where(c => c.JobCount > 0)
+                .OrderByDescending(c => c.JobCount)
+                .Take(6)
+                .ToList();
+
+            ViewBag.AllCategories = allCategories;
+
             return View(jobs);
         }
 
@@ -41,6 +60,7 @@ namespace Рабочка_beta_1._0.Controllers
             }
             return await query.ToListAsync();
         }
+
         [HttpGet]
         public async Task<IActionResult> Search(string query, string category)
         {
