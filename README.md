@@ -1,31 +1,20 @@
-# Рабочка - Сервис для поиска подработки
+<img width="1920" height="1030" alt="loginJob" src="https://github.com/user-attachments/assets/aa27b374-6684-44da-b5ef-86bd71ff5182" /><img width="1920" height="1030" alt="homeJob" src="https://github.com/user-attachments/assets/e7bf33e0-b3cb-4e2b-8c55-1d7100a5637a" /># Рабочка - Сервис для поиска подработки
 
-## В процессе:
-*   Страница профиля пользователя.
-
-## Пранируется реализовать:
-*   Реализация чата для общения между пользователями.
-*   Добавление авторизации и регистрации через Google и электронную почту.
-*   Применение ML.NET для модерации объявлений (проверка содержимого).
-*   Реализация функционала добавления объявлений на сайт.
-*   Добавление счетчика просмотров для объявлений.
-
----
 
 ## Главная страница сайта
-
-![Главная страница сервиса "Рабочка"](https://github.com/user-attachments/assets/9739e86c-4688-4a0e-958f-0be7da855b09)
-
----
+<img width="1920" height="1030" alt="homeJob" src="https://github.com/user-attachments/assets/ebd36000-c927-4add-b9d4-dfdcb1905f62" />
 
 ## Детальная информация о подработке
 
-![Детальная информация о подработке](https://github.com/user-attachments/assets/2cbc49b5-3e9e-4b6f-96b6-8d2954ad207a)
-
----
+<img width="1920" height="1030" alt="detailJob" src="https://github.com/user-attachments/assets/1f8b7712-b2f1-4f5a-9b35-b6069c8b20a7" />
 
 ## Страница авторизации/регистрации
 
-![Страница авторизации/регистрации сервиса "Рабочка"](https://github.com/user-attachments/assets/8966aaec-34fb-43a4-b56d-5d3f1266d2a7)
+<img width="1920" height="1030" alt="loginJob" src="https://github.com/user-attachments/assets/d2eaa529-20f6-4838-8000-42562b2b2e79" />
 
----
+## Страница профиля
+<img width="1920" height="1030" alt="profileJob" src="https://github.com/user-attachments/assets/4c3b4ec6-7fd6-4fb8-acb7-f57397881e70" />
+
+## Страница добавления вакансий
+<img width="1920" height="1030" alt="addJob" src="https://github.com/user-attachments/assets/b6d9d1a9-b76c-4953-b557-5cc0b96141b4" />
+
